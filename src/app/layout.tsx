@@ -10,19 +10,19 @@ export const metadata: Metadata = {
 };
 
 
-export default function RootLayout(props: { children: React.ReactNode }) {
-  const { children } = props
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html suppressHydrationWarning>
-      <body>
+      <body className={`flex antialiased`}>
         <Provider>
-           <Box display="flex" minH="100vh">
-             <Sidebar userRole={'admin'}  />
-               {children}
-          </Box>
-         </Provider>
+          
+            <Sidebar userRole={'admin'} />
+            <Box flex="1" ml={{ base: 0, md: '250px' }} p={4}>
+              {children}
+            </Box>
+          
+        </Provider>
       </body>
     </html>
-  )
+  );
 }
-
